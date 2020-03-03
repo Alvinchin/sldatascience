@@ -18,14 +18,15 @@ X = [[181, 80, 44], [177, 70, 43], [160, 60, 38], [154, 54, 37], [166, 65, 40],
 Y = ['male', 'male', 'female', 'female', 'male', 'male', 'female', 'female',
      'female', 'male', 'male']
 
+# input the data set to the trained model
 clf_neural = clf_neural.fit(X, Y)
 clf_tree = clf_tree.fit(X, Y)
 clf_KNN = clf_KNN.fit(X,Y)
 clf_svm = clf_svm.fit(X,Y)
 
-
-
+#The input of the model
 neural_prediction = clf_neural.predict(X)
+#The accuracy of the model using input data set
 acc_neural = accuracy_score(Y, neural_prediction) * 100
 print('Accuracy for NeuralNetwork: {}'.format(acc_neural))
 
@@ -44,4 +45,6 @@ print('Accuracy for SVM: {}'.format(acc_svm))
 index = np.argmax([acc_neural,acc_svm, acc_KNN])
 classifiers = {0: 'NeuralNetwork', 1: 'SVM', 2: 'KNN'}
 print('Best gender classifier is {}'.format(classifiers[index]))
+
+
 
